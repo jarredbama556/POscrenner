@@ -14,6 +14,9 @@
 		CB0667AB1A6420CB00F90D35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0667AA1A6420CB00F90D35 /* Images.xcassets */; };
 		CB0667AE1A6420CB00F90D35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0667AC1A6420CB00F90D35 /* LaunchScreen.xib */; };
 		CB0667BA1A6420CB00F90D35 /* POscrennerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0667B91A6420CB00F90D35 /* POscrennerTests.m */; };
+		CB0667C41A6444F200F90D35 /* ExampleExif.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB0667C31A6444F200F90D35 /* ExampleExif.jpg */; };
+		CB9C557F1A645D52001AC6C8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9C557E1A645D52001AC6C8 /* AssetsLibrary.framework */; };
+		CB9C55811A645D5B001AC6C8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9C55801A645D5B001AC6C8 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		CB0667B31A6420CB00F90D35 /* POscrennerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POscrennerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0667B81A6420CB00F90D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0667B91A6420CB00F90D35 /* POscrennerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POscrennerTests.m; sourceTree = "<group>"; };
+		CB0667C31A6444F200F90D35 /* ExampleExif.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ExampleExif.jpg; sourceTree = "<group>"; };
+		CB9C557E1A645D52001AC6C8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CB9C55801A645D5B001AC6C8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9C55811A645D5B001AC6C8 /* ImageIO.framework in Frameworks */,
+				CB9C557F1A645D52001AC6C8 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,8 @@
 		CB0667911A6420CB00F90D35 = {
 			isa = PBXGroup;
 			children = (
+				CB9C55801A645D5B001AC6C8 /* ImageIO.framework */,
+				CB9C557E1A645D52001AC6C8 /* AssetsLibrary.framework */,
 				CB06679C1A6420CB00F90D35 /* POscrenner */,
 				CB0667B61A6420CB00F90D35 /* POscrennerTests */,
 				CB06679B1A6420CB00F90D35 /* Products */,
@@ -86,6 +96,7 @@
 				CB0667A41A6420CB00F90D35 /* ViewController.h */,
 				CB0667A51A6420CB00F90D35 /* ViewController.m */,
 				CB0667A71A6420CB00F90D35 /* Main.storyboard */,
+				CB0667C31A6444F200F90D35 /* ExampleExif.jpg */,
 				CB0667AA1A6420CB00F90D35 /* Images.xcassets */,
 				CB0667AC1A6420CB00F90D35 /* LaunchScreen.xib */,
 				CB06679D1A6420CB00F90D35 /* Supporting Files */,
@@ -201,6 +212,7 @@
 			files = (
 				CB0667A91A6420CB00F90D35 /* Main.storyboard in Resources */,
 				CB0667AE1A6420CB00F90D35 /* LaunchScreen.xib in Resources */,
+				CB0667C41A6444F200F90D35 /* ExampleExif.jpg in Resources */,
 				CB0667AB1A6420CB00F90D35 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +358,7 @@
 				INFOPLIST_FILE = POscrenner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -356,6 +369,7 @@
 				INFOPLIST_FILE = POscrenner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -412,6 +426,7 @@
 				CB0667BF1A6420CB00F90D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB0667C01A6420CB00F90D35 /* Build configuration list for PBXNativeTarget "POscrennerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +435,7 @@
 				CB0667C21A6420CB00F90D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
