@@ -39,43 +39,13 @@
     self.imageView.image = selectedImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
-             resultBlock:^(ALAsset *asset) {
-                 
-                 ALAssetRepresentation *image_representation = [asset defaultRepresentation];
-                 
-                 // create a buffer to hold image data
-                 uint8_t *buffer = (Byte*)malloc(image_representation.size);
-                 NSUInteger length = [image_representation getBytes:buffer fromOffset: 0.0  length:image_representation.size error:nil];
-                 
-                 if (length != 0)  {
-                     
-                     // buffer -> NSData object; free buffer afterwards
-                     NSData *adata = [[NSData alloc] initWithBytesNoCopy:buffer length:image_representation.size freeWhenDone:YES];
-                     
-                     // identify image type (jpeg, png, RAW file, ...) using UTI hint
-                     NSDictionary* sourceOptionsDict = [NSDictionary dictionaryWithObjectsAndKeys:(id)[image_representation UTI] ,kCGImageSourceTypeIdentifierHint,nil];
-                     
-                     // create CGImageSource with NSData
-                     CGImageSourceRef sourceRef = CGImageSourceCreateWithData((CFDataRef) adata,  (CFDictionaryRef) sourceOptionsDict);
-                     
-                     // get imagePropertiesDictionary
-                     CFDictionaryRef imagePropertiesDictionary;
-                     imagePropertiesDictionary = CGImageSourceCopyPropertiesAtIndex(sourceRef,0, NULL);
-                     
-                     // get exif data
-                     CFDictionaryRef exif = (CFDictionaryRef)CFDictionaryGetValue(imagePropertiesDictionary, kCGImagePropertyExifDictionary);
-                     NSDictionary *exif_dict = (__bridge NSDictionary*)exif;
-                }
-                 else {
-                     NSLog(@"image_representation buffer length == 0");
-                 }
-             }
-            failureBlock:^(NSError *error) {
-                NSLog(@"couldn't get asset: %@", error);
-            }
-     ];
+    
+    //NSString *myPath = [[NSBundle mainBundle] pathForResource:@"/Users/jarredalldredge/Documents/iOS Developments/POscrenner/POscrenner/ExampleExif" ofType:@"JPG"];
+    NSURL *myURL = [NSURL fileURLWithPath:@"/Users/jarredalldredge/Documents/iOS Developments/POscrenner/POscrenner/ExampleExif.jpg"];
+    CGImageSourceRef mySourceRef = CGImageSourceCreateWithURL((CFURLRef)myURL, NULL);
+    NSDictionary *myMetadata = (NSDictionary *) CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(mySourceRef,0,NULL));
+    NSDictionary *exifDic = [myMetadata objectForKey:(NSString *)kCGImagePropertyExifDictionary];
+    NSDictionary *tiffDic = [myMetadata objectForKey:(NSString *)kCGImagePropertyTIFFDictionary];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
