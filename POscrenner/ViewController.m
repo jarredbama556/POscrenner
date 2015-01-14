@@ -39,8 +39,6 @@
     self.imageView.image = selectedImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
-    
-    //NSString *myPath = [[NSBundle mainBundle] pathForResource:@"/Users/jarredalldredge/Documents/iOS Developments/POscrenner/POscrenner/ExampleExif" ofType:@"JPG"];
     NSURL *myURL = [NSURL fileURLWithPath:@"/Users/jarredalldredge/Documents/iOS Developments/POscrenner/POscrenner/ExampleExif.jpg"];
     CGImageSourceRef mySourceRef = CGImageSourceCreateWithURL((CFURLRef)myURL, NULL);
     NSDictionary *myMetadata = (NSDictionary *) CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(mySourceRef,0,NULL));
